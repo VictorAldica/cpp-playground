@@ -2,14 +2,26 @@
 
 bool isArmstrongNumber(int number)
 {
-	// TODO: implement some functionality to see if this number is an armstrong number
-
+	int nr = number;
+	int digit = -1;
+	int armstrong = 0;
+	while (nr)
+	{
+		digit = nr % 10;
+		armstrong += digit * digit * digit;
+		nr /= 10;
+	}
+	if (armstrong == number) return true;
 	return false;
 }
 
 void printIsArmstrong(int number)
 {
-	if (isArmstrongNumber(number))
+	if (!number)
+	{
+		std::cout << "NAN input" << std::endl;
+	}
+	else if (isArmstrongNumber(number))
 	{
 		std::cout << "Armstrong" << std::endl;
 	}
@@ -50,9 +62,9 @@ int main(int argc, char *argv[])
 	int readNumber = 0;
 	// Get the first argument
 	std::string argumentAsString = argv[1];
+	const char* argumentAsCharArray = argumentAsString.c_str();
+	readNumber = atoi(argumentAsCharArray);
 	
-	// TODO: read number / cast to integer
-
 	printIsArmstrong(readNumber);
 	return 0;
 }
