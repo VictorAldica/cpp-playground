@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 
 /**
 	Define a simple book.
@@ -34,25 +35,32 @@ public:
 std::vector<Book> readBooksFromTextFile(const std::string& file_name)
 {
 	std::vector<Book> results;
-	// TODO: BEGIN read the file -------------------------------------
 
-
-	// E.g. Book myBook;
-	//		...
-	//		results.emplace_back(myBook);
-
-	// TODO: END read file and add to results vector ------------------
+	std::string name;
+	std::string authors;
+	std::ifstream file_input(file_name);
+	
+	while (!file_input.eof())
+	{
+		Book b;
+		std::getline(file_input, name);
+		b.name = name;
+		std::getline(file_input, authors);
+		b.authors = authors;
+				
+		results.push_back(b);
+	}
+	file_input.close();
 	return results;
 }
 
 int main()
 {
-	// Read a collection of books from a file.
-	// Simple examples can be found everywhere.
-	// E.g. https://stackoverflow.com/questions/7868936/read-file-line-by-line-using-ifstream-in-c
 
+	//Modificat path-ul pentru a putea rula din bin
+	
 	// Read the data
-	std::string input_data("../../data/ermahgerd_berks.txt");
+	std::string input_data("../data/ermahgerd_berks.txt");
 	std::cout << "Reading the data from " << input_data << std::endl;
 	std::vector<Book> books_from_file = readBooksFromTextFile(input_data);
 
