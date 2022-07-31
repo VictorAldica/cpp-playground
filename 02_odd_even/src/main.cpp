@@ -1,11 +1,15 @@
 #include <stdio.h>
-
 #include <iostream>
 #include <string>
 
+
 void printOddOrEven(int number)
 {
-	if (number % 2 == 0)
+	if(!number)
+	{
+		printf("NAN\n");
+	}
+	else if (number % 2 == 0)
 	{
 		printf("EVEN\n");
 	}
@@ -42,13 +46,9 @@ int main(int argc, char *argv[])
 	// Get the first argument
 	std::string argumentAsString = argv[1];
 	const char* argumentAsCharArray = argumentAsString.c_str();
-
-	//number = argv[1]; // No
-	//should use atoi?
-	// or std::stoi?
-
-	std::cout << argumentAsString << std::endl; // i think this should be removed
-
+	
+	number = atoi(argumentAsCharArray);
+	
 	// --------------- stop
 
 	printOddOrEven(number);
