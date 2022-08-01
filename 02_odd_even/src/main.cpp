@@ -19,6 +19,14 @@ void printOddOrEven(int number)
 	}
 }
 
+bool printNAN(const char* input)
+{
+	bool nan = false;
+	for (int i = 0; i < strlen(input); i++)
+		if (input[i] < '0' && input[i]>'9') nan = true;
+	return nan;
+}
+
 int main(int argc, char *argv[])
 {
 	int number = -13;
@@ -47,7 +55,10 @@ int main(int argc, char *argv[])
 	std::string argumentAsString = argv[1];
 	const char* argumentAsCharArray = argumentAsString.c_str();
 	
-	number = atoi(argumentAsCharArray);
+	if (printNAN(argumentAsCharArray))
+		printf("NAN\n");
+	else
+		number = atoi(argumentAsCharArray);
 	
 	// --------------- stop
 
