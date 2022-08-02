@@ -5,11 +5,8 @@
 
 void printOddOrEven(int number)
 {
-	if(!number)
-	{
-		printf("NAN\n");
-	}
-	else if (number % 2 == 0)
+	
+	if (number % 2 == 0)
 	{
 		printf("EVEN\n");
 	}
@@ -58,11 +55,12 @@ int main(int argc, char *argv[])
 	if (printNAN(argumentAsCharArray))
 		printf("NAN\n");
 	else
+	{
 		number = atoi(argumentAsCharArray);
-	
-	// --------------- stop
 
-	printOddOrEven(number);
+		// --------------- stop
 
+		printOddOrEven(number);
+	}
 	return 0;
 }

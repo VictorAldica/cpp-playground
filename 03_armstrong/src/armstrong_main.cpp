@@ -15,13 +15,18 @@ bool isArmstrongNumber(int number)
 	return false;
 }
 
+bool printNAN(const char* input)
+{
+	bool nan = false;
+	for (int i = 0; i < strlen(input); i++)
+		if (input[i] < '0' && input[i]>'9') nan = true;
+	return nan;
+}
+
+
 void printIsArmstrong(int number)
 {
-	if (!number)
-	{
-		std::cout << "NAN input" << std::endl;
-	}
-	else if (isArmstrongNumber(number))
+	if (isArmstrongNumber(number))
 	{
 		std::cout << "Armstrong" << std::endl;
 	}
@@ -63,8 +68,12 @@ int main(int argc, char *argv[])
 	// Get the first argument
 	std::string argumentAsString = argv[1];
 	const char* argumentAsCharArray = argumentAsString.c_str();
-	readNumber = atoi(argumentAsCharArray);
-	
-	printIsArmstrong(readNumber);
+	if(printNAN(argumentAsCharArray))
+		std::cout<<"NAN\n";
+	else
+	{
+		readNumber = atoi(argumentAsCharArray);
+		printIsArmstrong(readNumber);
+	}
 	return 0;
 }
