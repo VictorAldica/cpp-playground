@@ -74,7 +74,7 @@ int Grid::CountNeighbours(int pos_x, int pos_y)
 				y = i; x = j;
 				if (y < 0)   y += m_lin;  // sus => jos
 				if (y == m_lin) y = 0;    // jos => sus   
-				if (x < 0)   x += m_col; // stanga => dreapta
+				if (x < 0)   x += m_col;  // stanga => dreapta
 				if (x == m_col) x = 0;    // dreapta => stanga
 
 				neighbours += m_frame[y][x];

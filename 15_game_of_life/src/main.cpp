@@ -6,7 +6,7 @@ int main()
 	Grid G;
 	G.InitRandom();
 	G.AddCell(4, 5);
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < 15; i++)
 	{
 			
 			G.PrintGrid();

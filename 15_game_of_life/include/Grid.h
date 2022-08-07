@@ -12,8 +12,8 @@ public:
 	~Grid();
 	void AddCell(int,int);
 	void DelCell(int,int);
-	int CountNeighbours(int, int);
 	void InitRandom();
+	int CountNeighbours(int, int);
 	void NextFrame();
 	void PrintGrid();
 private:
