@@ -39,18 +39,24 @@ std::vector<Book> readBooksFromTextFile(const std::string& file_name)
 	std::string name;
 	std::string authors;
 	std::ifstream file_input(file_name);
+
 	
-	while (!file_input.eof())
+	if (file_input.is_open())
 	{
-		Book b;
-		std::getline(file_input, name);
-		b.name = name;
-		std::getline(file_input, authors);
-		b.authors = authors;
-				
-		results.push_back(b);
+		while (!file_input.eof())
+		{
+			Book b;
+			std::getline(file_input, name);
+			b.name = name;
+			std::getline(file_input, authors);
+			b.authors = authors;
+
+			results.push_back(b);
+		}
+		file_input.close();
 	}
-	file_input.close();
+	else
+			std::cout << "Error at opening and parsing file\n";
 	return results;
 }
 
