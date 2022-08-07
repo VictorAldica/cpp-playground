@@ -22,4 +22,4 @@ file(GLOB SRC_FILES "src/*.cpp")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/bin)
 
 # specify that we are building an executable, and what sources to use 
-add_executable(${PROJECT_NAME} ${HEADER_FILES} ${SRC_FILES})
+add_executable(${PROJECT_NAME} ${HEADER_FILES} ${SRC_FILES} "src/Grid.cpp" "include/Grid.h")
